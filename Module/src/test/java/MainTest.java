@@ -69,4 +69,25 @@ class MainTest {
         assertNull(tree.left());
     }
 
+    public static void timeInsert(int n) {
+        BST<Spot> tree = null;
+        for (int i = 0; i < n; i++) {
+            tree = BST.insert(tree, Spot.randomSpot());
+        }
+        long start = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            BST.insert(tree, Spot.randomSpot());
+        }
+        long end = System.nanoTime();
+        System.out.println("n = " + n + ": " + (end - start) / 1000 + " ns per insert");
+    }
+
+    @Test
+    public void testTime() {
+        timeInsert(1_000);
+        timeInsert(100_000);
+        timeInsert(10_000_000);
+        timeInsert(50_000_000);
+    }
+
 }
