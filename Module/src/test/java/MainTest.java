@@ -79,7 +79,7 @@ class MainTest {
             BST.insert(tree, Spot.randomSpot());
         }
         long end = System.nanoTime();
-        System.out.println("n = " + n + ": " + (end - start) / 1000 + " ns per insert");
+        System.out.println("n = " + n + ": " + (end - start) / 1000);
     }
 
     @Test
